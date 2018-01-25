@@ -1,0 +1,9 @@
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe.config
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.pdb
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.Form1.resources
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.Cache
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.exe
+C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.pdb
