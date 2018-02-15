@@ -2,7 +2,6 @@
 /* TODO
  * DataSource to pull in information from spreadsheet
  * Professor selection handled by listview
- *  LAST NAME, FIRST NAME, ...
  * Course output handled by either ListView or DataGrid depending on how much information is needed
  * agree on a design template
  * form goals of application
@@ -33,6 +32,9 @@ namespace CapstoneProject
 {
     public partial class Form1 : Form
     {
+        DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
+
         public Form1()
         {
             InitializeComponent();
@@ -56,7 +58,7 @@ namespace CapstoneProject
             {
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer),
                 Title = "Course schedule",
-                Filter = "Microsoft Excel 2007-2013 XML (*.xlsx)|*.xlsx|All Files (*.*)|*.*", //update this as file types are supported
+                Filter = "Microsoft Excel 2007-2013 XML (*.xlsx)|*.xlsx|All Files (*.*)|*.*",
                 FilterIndex = 2,
                 RestoreDirectory = true
             };
@@ -70,14 +72,31 @@ namespace CapstoneProject
                     {
                         string filename = fdial.FileName.ToString();
                         string connectionString = "Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + filename + ";" + 
-                                                  "Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\""; //connectionstrings.com
+                                                  "Extended Properties=\"Excel 12.0 Xml;HDR=YES;IMEX=1\"";
 
+                        OleDbConnection connection = new OleDbConnection(connectionString);
+                        connection.Open();
+                        dt = connection.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                        string sheetName = dt.Rows[0]["TABLE_NAME"].ToString();
 
-                        OleDbConnection connection = new OleDbConnection(connectionString); // establish link to file
-                        OleDbDataAdapter command = new OleDbDataAdapter("select * from [Sheet1$]", connection); // select every cell on Sheet1
-                        DataSet ds = new DataSet(); // initialize dataset for data grid
-                        command.Fill(ds); // fill data grid
-                        scheduleDataGridView.DataSource = ds.Tables[0];
+                        /* foreach (DataRow dr in dt.Rows)
+                        {
+                            string query = "SELECT * FROM [" + dr.Item(0).ToString + "]";
+                            ds.Clear();
+                            OleDbDataAdapter data = new OleDbDataAdapter(query, connection);
+                            data.Fill(ds);
+
+                        } */
+
+                        OleDbDataAdapter command = new OleDbDataAdapter(String.Format("SELECT * FROM [{0}]", sheetName), connection);
+                        command.Fill(dt);
+
+                        // remove schema information
+                        for (int i = 0; i < 12; i++) dt.Columns.Remove(dt.Columns[i]);
+                        dt.Rows[0].Delete();
+                        dt.AcceptChanges();
+
+                        scheduleDataGridView.DataSource = dt;
                         connection.Close();
                     }
                     catch (Exception ex)
@@ -87,6 +106,69 @@ namespace CapstoneProject
                     }
                 }
             }
+        }
+
+        /* Generate Ten Day Report */
+        private void GenerateButton_Click(object sender, EventArgs e)
+        {
+            DataTable outDT = new DataTable();
+            outDT.Clear();
+            outDT.Columns.Add("Instructor", typeof(String));
+            outDT.Columns.Add("Course", typeof(int));
+            outDT.Columns.Add("Title", typeof(String));
+
+            DataRow[] row = dt.Select();
+            //FIXME
+            for (int i = 0; i < row.Length; i++)
+            {
+                outDT.Rows.Add(dt.Rows[i][i]);
+                outDT.Rows.Add(dt.Rows[i][i]);
+                outDT.Rows.Add(dt.Rows[i][i]);
+            }
+
+            scheduleDataGridView.DataSource = outDT;
+
+            GenReport(outDT, "C:\\Users\\Nick\\Documents\\HERE!\\Output\\report.csv");
+        }
+
+        private static void GenReport(DataTable dt, string filePath)
+        {
+            StreamWriter sw = new StreamWriter(filePath, false);
+            //headers  
+            for (int i = 0; i < dt.Columns.Count; i++)
+            {
+                sw.Write(dt.Columns[i]);
+                if (i < dt.Columns.Count - 1)
+                {
+                    sw.Write(",");
+                }
+            }
+            sw.Write(sw.NewLine);
+            foreach (DataRow dr in dt.Rows)
+            {
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    if (!Convert.IsDBNull(dr[i])) // makes sure isn't null
+                    {
+                        string value = dr[i].ToString();
+                        if (value.Contains(',')) // allows for ',' characters in cells
+                        {
+                            value = String.Format("\"{0}\"", value);
+                            sw.Write(value);
+                        }
+                        else
+                        {
+                            sw.Write(dr[i].ToString());
+                        }
+                    }
+                    if (i < dt.Columns.Count - 1)
+                    {
+                        sw.Write(",");
+                    }
+                }
+                sw.Write(sw.NewLine);
+            }
+            sw.Close();
         }
     }
 }

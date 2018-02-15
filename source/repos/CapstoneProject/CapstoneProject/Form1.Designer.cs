@@ -30,11 +30,14 @@
         {
             this.scheduleDataGridView = new System.Windows.Forms.DataGridView();
             this.ImportButton = new System.Windows.Forms.Button();
+            this.GenerateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // scheduleDataGridView
             // 
+            this.scheduleDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.scheduleDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.scheduleDataGridView.BackgroundColor = System.Drawing.SystemColors.Window;
             this.scheduleDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.scheduleDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -53,11 +56,22 @@
             this.ImportButton.UseVisualStyleBackColor = true;
             this.ImportButton.Click += new System.EventHandler(this.OpenButton_Click);
             // 
+            // GenerateButton
+            // 
+            this.GenerateButton.Location = new System.Drawing.Point(528, 228);
+            this.GenerateButton.Name = "GenerateButton";
+            this.GenerateButton.Size = new System.Drawing.Size(75, 23);
+            this.GenerateButton.TabIndex = 2;
+            this.GenerateButton.Text = "Generate";
+            this.GenerateButton.UseVisualStyleBackColor = true;
+            this.GenerateButton.Click += new System.EventHandler(this.GenerateButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 263);
+            this.Controls.Add(this.GenerateButton);
             this.Controls.Add(this.ImportButton);
             this.Controls.Add(this.scheduleDataGridView);
             this.KeyPreview = true;
@@ -72,6 +86,7 @@
 
         private System.Windows.Forms.DataGridView scheduleDataGridView;
         private System.Windows.Forms.Button ImportButton;
+        private System.Windows.Forms.Button GenerateButton;
     }
 }
 

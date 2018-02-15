@@ -8,13 +8,3 @@ C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\Capston
 C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.exe
 C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.pdb
 C:\Users\Nick\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.csprojResolveAssemblyReference.cache
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\bin\x86\Debug\CapstoneProject.exe.config
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\bin\x86\Debug\CapstoneProject.exe
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\bin\x86\Debug\CapstoneProject.pdb
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.csprojResolveAssemblyReference.cache
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.Form1.resources
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.Properties.Resources.resources
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.csproj.GenerateResource.Cache
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.exe
-C:\Users\Nick\Desktop\Ten-Day-Report-Automation\source\repos\CapstoneProject\CapstoneProject\obj\x86\Debug\CapstoneProject.pdb
