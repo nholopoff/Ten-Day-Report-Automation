@@ -128,6 +128,7 @@ namespace CapstoneProject
 
             scheduleDataGridView.DataSource = outDT;
 
+			// CHECK THIS
             GenReport(outDT, "C:\\Users\\Nick\\Documents\\HERE!\\Output\\report.csv");
         }
 
